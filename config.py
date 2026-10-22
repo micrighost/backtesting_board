@@ -4,12 +4,11 @@ from dotenv import load_dotenv
 
 def setup_system():
     """初始化系統字型與環境變數"""
-    # 同時寫入 Linux 與 Windows 的常見中文字型，Matplotlib 會依序尋找
+    # 讓 Matplotlib 優先找 Linux 的思源黑體，找不到就找 Windows 的微軟正黑體
     plt.rcParams['font.sans-serif'] = [
-        'Noto Sans CJK TC',      # Linux 常用思源黑體
-        'WenQuanYi Zen Hei',     # Linux 常用文泉驛正黑
+        'Noto Sans CJK TC',      # Linux 繁體中文
         'Microsoft JhengHei',    # Windows 微軟正黑體
-        'Arial'
+        'sans-serif'
     ]
     plt.rcParams['axes.unicode_minus'] = False # 正常顯示負號
     load_dotenv()
