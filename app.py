@@ -60,7 +60,8 @@ with col_setting2:
     # 【完美歸位】依據您的設計，將下拉選單完美保留在 col_setting2 的區塊最下方
     scan_target = st.selectbox("🔍 請選擇你想看期望值變化的掃描參數：", ["短期均線天數 (3-20天)", "長期均線天數 (10-120天)", "計算平均成交量的天數 (5-60天)", "成交量爆量倍數門檻 (0.5-3.0倍)", "RSI 計算天數 (5-30天)", "RSI 門檻值 (0-100)", "MACD 快線天數 (5-25天)", "MACD 慢線天數 (20-50天)", "MACD 訊號線天數 (5-20天)"])
 
-btn_trigger = st.button("🔥 開始執行完整回測與參數掃描", use_container_width=True)
+# 【修正】將 use_container_width=True 替換為 width="stretch"，符合 Streamlit 最新規範
+btn_trigger = st.button("🔥 開始執行完整回測與參數掃描", width="stretch")
 
 # 3. 按鈕觸發：核心回測流程與窮舉
 if btn_trigger and tickers:
@@ -107,6 +108,7 @@ if btn_trigger and tickers:
         # 【修正 3】移除原先的 st.rerun()，改用以下這行更新畫面，徹底阻斷無窮重啟死循環
         st.navigation_visibility = "visible"
 
+
 # 4. 下方成果與「穿透式檢視」隔離渲染區
 @st.fragment
 def render_data_inspection_station():
@@ -127,12 +129,14 @@ def render_data_inspection_station():
         if conds_switches['rsi']: display_df['RSI'] = df_detail['RSI'].round(2)
         if conds_switches['macd']: display_df['MACD柱狀體'] = df_detail['MACD_Hist'].round(4)
         display_df['是否進場?'] = df_detail['Signal'].map({1: "🟢 持股", 0: "⚪ 空手"})
-        st.dataframe(display_df.reset_index().sort_values(by='Date', ascending=False).rename(columns={'Date': '交易日期'}), use_container_width=True, hide_index=True)
+        # 【修正】將 use_container_width=True 替換為 width="stretch"
+        st.dataframe(display_df.reset_index().sort_values(by='Date', ascending=False).rename(columns={'Date': '交易日期'}), width="stretch", hide_index=True)
 
 if st.session_state.has_run and st.session_state.summary:
     for msg in st.session_state.success_msgs: st.success(msg)
     st.markdown("### 🏆 策略回測成績單 (當前參數)")
-    st.dataframe(pd.DataFrame(st.session_state.summary), use_container_width=True, hide_index=True)
+    # 【修正】將 use_container_width=True 替換為 width="stretch"
+    st.dataframe(pd.DataFrame(st.session_state.summary), width="stretch", hide_index=True)
     col_graph1, col_graph2 = st.columns(2)
     col_graph1.markdown("##### 📈 圖一：歷史累積報酬率走勢")
     col_graph1.pyplot(st.session_state.fig_p)
