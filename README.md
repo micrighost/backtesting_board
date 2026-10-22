@@ -2,6 +2,6 @@
 穿透式檢視
 參數敏感度分析
 
-streamlit run main.py
+streamlit run app.py
 
-streamlit run 初代main.py
+streamlit run 初代app.py
