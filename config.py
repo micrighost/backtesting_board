@@ -4,8 +4,14 @@ from dotenv import load_dotenv
 
 def setup_system():
     """初始化系統字型與環境變數"""
-    plt.rcParams['font.sans-serif'] = ['Microsoft JhengHei']  # Windows 微軟正黑體
-    plt.rcParams['axes.unicode_minus'] = False                # 正常顯示負號
+    # 同時寫入 Linux 與 Windows 的常見中文字型，Matplotlib 會依序尋找
+    plt.rcParams['font.sans-serif'] = [
+        'Noto Sans CJK TC',      # Linux 常用思源黑體
+        'WenQuanYi Zen Hei',     # Linux 常用文泉驛正黑
+        'Microsoft JhengHei',    # Windows 微軟正黑體
+        'Arial'
+    ]
+    plt.rcParams['axes.unicode_minus'] = False # 正常顯示負號
     load_dotenv()
 
 def load_ticker_options():
