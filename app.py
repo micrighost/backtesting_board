@@ -136,7 +136,7 @@ if st.session_state.has_run and st.session_state.summary:
     col_graph1, col_graph2 = st.columns(2)
     col_graph1.markdown("##### 📈 圖一：歷史累積報酬率走勢")
     col_graph1.pyplot(st.session_state.fig_p)
-    col_graph2.markdown("##### 🎯 圖二：參數敏感度分析 (★ 為歷史最佳最優解)")
+    col_graph2.markdown("##### 🎯 圖二：大王666參數敏感度分析 (★ 為歷史最佳最優解)")
     col_graph2.pyplot(st.session_state.fig_s)
 
 render_data_inspection_station()
