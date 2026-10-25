@@ -1,0 +1,22 @@
+# 網頁前端與互動介面
+streamlit>=1.30.0
+
+# 股票資料抓取
+yfinance>=0.2.35
+
+# 技術指標計算 (ta 套件為純 Python 編寫，安裝最不易出錯)
+ta>=0.11.0
+
+# 資料處理與數學運算
+pandas>=2.0.0
+numpy>=1.24.0
+
+# 機器學習與模型
+scikit-learn>=1.3.0
+
+# 繪圖與視覺化 (Streamlit 內建支援 Plotly 互動圖表)
+plotly>=5.18.0
+matplotlib
+
+python-dotenv
+
