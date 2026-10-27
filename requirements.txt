@@ -4,7 +4,7 @@ streamlit>=1.30.0
 # 股票資料抓取
 yfinance>=0.2.35
 
-# 技術指標計算 (ta 套件為純 Python 編寫，安裝最不易出錯)
+# 技術指標計算
 ta>=0.11.0
 
 # 資料處理與數學運算
@@ -14,9 +14,13 @@ numpy>=1.24.0
 # 機器學習與模型
 scikit-learn>=1.3.0
 
-# 繪圖與視覺化 (Streamlit 內建支援 Plotly 互動圖表)
+# 繪圖與視覺化
 plotly>=5.18.0
 matplotlib
 
+# 環境變數管理
 python-dotenv
 
+# 資料庫連線 (SQLAlchemy 與必備的 PostgreSQL 驅動)
+sqlalchemy
+psycopg2-binary
