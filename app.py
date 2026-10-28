@@ -8,7 +8,7 @@ from data_loader import db_fetch_stock_data
 
 st.set_page_config(layout="wide", page_title="策略競技場", page_icon="📊")
 setup_system()
-st.title("📊 全自訂多股策略競技場 (多空雙向版)")
+st.title("📊 全自訂多股策略競技場 (打臉自己或是證明自己)")
 
 @st.cache_data(show_spinner=False)
 def fetch_stock_data(tk, s, e): return db_fetch_stock_data(tk, s, e)
@@ -101,7 +101,7 @@ if st.session_state.has_run:
     for m in st.session_state.success_msgs: st.success(m)
     
     st.write("---")
-    st.markdown("### 📊 策略競技場回測結果與參數掃描分析")
+    st.markdown("### 📊 策略競技場回測結果與參數敏感度分析")
     fig_col1, fig_col2 = st.columns(2)
     with fig_col1:
         st.markdown("#### 📈 累積報酬率對抗曲線 (vs 大盤)")
