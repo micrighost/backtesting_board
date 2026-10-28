@@ -94,7 +94,7 @@ def db_fetch_stock_data(ticker, start, end):
             return fetch_backup_data(ticker, start, end)
 
             
-        print(f"📡 [資料庫成功] 成功從資料庫撈取 {ticker} 的歷史資料，共 {len(df)} 筆。", flush=True)
+        print(f"📡 [資料庫成功] 成功從資料庫撈取 {ticker} 的歷史資料，共 {len(df)} 筆。")
         return clean_dataframe_format(df, ticker)
         
     except Exception as e:
