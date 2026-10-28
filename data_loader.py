@@ -93,9 +93,8 @@ def db_fetch_stock_data(ticker, start, end):
             print(f"[提示] 資料庫內無 {ticker} 的資料，切換至預設備用源...")
             return fetch_backup_data(ticker, start, end)
 
-        import sys
             
-        print(f"📡 [資料庫成功] 成功從資料庫撈取 {ticker} 的歷史資料，共 {len(df)} 筆。", file=sys.stderr, flush=True)
+        print(f"📡 [資料庫成功] 成功從資料庫撈取 {ticker} 的歷史資料，共 {len(df)} 筆。", flush=True)
         return clean_dataframe_format(df, ticker)
         
     except Exception as e:
