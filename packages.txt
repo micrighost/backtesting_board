@@ -1,0 +1,2 @@
+# Streamlit專用的安裝Linux 中文字型指令
+fonts-noto-cjk
